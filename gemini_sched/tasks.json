@@ -1,39 +1,39 @@
 {
   "tasks": [
     {
-      "query": "New feature request for Product A",
+      "query": "Customer feedback on missing features, user permissions, model versioning, rollback support, and a public roadmap.",
       "estimate_time": 240,
       "priority": 2,
       "person": [
-        "Steven"
+        "Steven,Kevin,Karl,Alex"
       ]
     },
     {
-      "query": "Customer feedback regarding missing platform features (user permissions, model versioning, rollback), compliance concerns, and a request for a clearer public roadmap.",
-      "estimate_time": 360,
+      "query": "Customer feedback regarding missing features (fine-grained user permissions, automated model versioning, rollback support), compliance concerns, competitive landscape, and a request for a clearer public roadmap.",
+      "estimate_time": 480,
       "priority": 2,
       "person": [
-        "Karl,Steven,Kevin,Alex"
+        "Steven,Kevin,Karl,Alex"
       ]
     },
     {
-      "query": "Customer feedback on platform pricing model, feature tiers, and transparency",
-      "estimate_time": 150,
-      "priority": 2,
-      "person": [
-        "Steven,Kevin,Alex"
-      ]
-    },
-    {
-      "query": "Urgent product crash on startup",
-      "estimate_time": 240,
+      "query": "User's laptop won't power on; critical project files are at risk.",
+      "estimate_time": 120,
       "priority": 1,
       "person": [
-        "Karl,Mia,Liam,Alex"
+        "Olivia"
       ]
     },
     {
-      "query": "The printer on the third floor is broken.",
+      "query": "Issues with cross-departmental collaboration due to restricted folder access in shared workspace.",
+      "estimate_time": 90,
+      "priority": 2,
+      "person": [
+        "Olivia"
+      ]
+    },
+    {
+      "query": "Print machine needs immediate repair",
       "estimate_time": 60,
       "priority": 1,
       "person": [
@@ -41,19 +41,67 @@
       ]
     },
     {
-      "query": "User's laptop won't power on, critical project files at risk, needs immediate IT assistance for a 2 p.m. meeting.",
-      "estimate_time": 90,
+      "query": "Customer feedback regarding missing platform features, user permissions, model versioning, and public roadmap.",
+      "estimate_time": 180,
       "priority": 1,
       "person": [
-        "Olivia"
+        "Steven,Kevin,Karl"
       ]
     },
     {
-      "query": "Request for Product B manual",
+      "query": "Customer provides feedback on communication, release timelines, and desires more involvement in early feedback programs.",
+      "estimate_time": 90,
+      "priority": 1,
+      "person": [
+        "Karl,Steven,Kevin,Alex"
+      ]
+    },
+    {
+      "query": "Meeting request for Kevin",
       "estimate_time": 15,
       "priority": 3,
       "person": [
         "Kevin"
+      ]
+    },
+    {
+      "query": "Product B feature enhancement request",
+      "estimate_time": 60,
+      "priority": 3,
+      "person": [
+        "Kevin"
+      ]
+    },
+    {
+      "query": "Customer feedback on Product A features and request for new features",
+      "estimate_time": 240,
+      "priority": 2,
+      "person": [
+        "Steven,Karl"
+      ]
+    },
+    {
+      "query": "Improvement needed for Product B's editing feature.",
+      "estimate_time": 120,
+      "priority": 2,
+      "person": [
+        "Kevin,Karl,Liam,Peter"
+      ]
+    },
+    {
+      "query": "Improvement suggestion for Product A's film uploading feature.",
+      "estimate_time": 60,
+      "priority": 3,
+      "person": [
+        "Steven"
+      ]
+    },
+    {
+      "query": "Suggestion for improving film uploading feature in Product A",
+      "estimate_time": 60,
+      "priority": 3,
+      "person": [
+        "Steven"
       ]
     }
   ]
