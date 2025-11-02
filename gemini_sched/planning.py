@@ -1,18 +1,17 @@
 from google import genai
 from google.genai import types
-import json, datetime
+import json, datetime, re
 
 # ==============================
 # 🔹 Gemini API Setup
 # ==============================
 client = genai.Client(api_key="AIzaSyCDqagBpp-Tqi9qtJ2MDQBd_Hpq8gvzQ7I")  # Replace with your actual key
 
-
 # ==============================
 # 🔹 Time Conversion + Calendar Writer
 # ==============================
 def convert_to_24(time_str):
-    """Convert 12-hour time format (AM/PM) to 24-hour time"""
+    """Convert 12-hour AM/PM time to 24-hour format"""
     time, modifier = time_str.split(" ")
     hours, minutes = time.split(":")
     if modifier == "PM" and hours != "12":
@@ -25,44 +24,47 @@ def convert_to_24(time_str):
 def update_calendar(gemini_output, save_path="./calendar/schedule.json"):
     """
     Convert Gemini's schedule output into FullCalendar format and save to schedule.json
+    (Automatically skips weekends)
     """
-    today = datetime.date.today().isoformat()
+    # 🔹 找出要用的排程日期（如果今天是週末 → 自動移動到下週一）
+    today = datetime.date.today()
+    if today.weekday() >= 5:  # 週六 = 5, 週日 = 6
+        days_to_monday = 7 - today.weekday()
+        today = today + datetime.timedelta(days=days_to_monday)
+    today_str = today.isoformat()
+
     formatted = {}
 
     for staff in gemini_output:
         name = staff["staff_member"]
         formatted[name] = []
+
         for t in staff["tasks"]:
             formatted[name].append({
                 "title": t["task_name"],
-                "start": f"{today}T{convert_to_24(t['time_start'])}",
-                "end": f"{today}T{convert_to_24(t['time_end'])}",
-                "priority": (
-                    "High" if t["priority"] == 1
-                    else "Medium" if t["priority"] == 2
-                    else "Low"
-                ),
+                "start": f"{today_str}T{convert_to_24(t['time_start'])}",
+                "end": f"{today_str}T{convert_to_24(t['time_end'])}",
+                "priority": t["priority"],
                 "notes": t.get("notes", "")
             })
 
     with open(save_path, "w", encoding="utf-8") as f:
         json.dump(formatted, f, ensure_ascii=False, indent=2)
 
-    print(f"✅ Calendar updated successfully: {save_path}")
+    print(f"✅ Calendar updated successfully for {today.strftime('%A')} ({today_str}) → {save_path}")
 
 
 # ==============================
-# 🔹 Gemini Function Declaration (Schema)
+# 🔹 Gemini Function Schema
 # ==============================
 schedule_function = {
     "name": "schedule",
-    "description": "Arrange each staff member's daily schedule, considering task priority and urgency.",
+    "description": "Arrange each staff member's daily schedule with task priority and time slots.",
     "parameters": {
         "type": "object",
         "properties": {
             "tasks": {
                 "type": "array",
-                "description": "The schedule output for each staff member",
                 "items": {
                     "type": "object",
                     "properties": {
@@ -80,12 +82,7 @@ schedule_function = {
                                     "priority": {"type": "integer"},
                                     "notes": {"type": "string"}
                                 },
-                                "required": [
-                                    "time_start",
-                                    "time_end",
-                                    "task_name",
-                                    "priority"
-                                ]
+                                "required": ["time_start", "time_end", "task_name", "priority"]
                             }
                         }
                     },
@@ -102,7 +99,7 @@ config = types.GenerateContentConfig(tools=[tools])
 
 
 # ==============================
-# 🔹 Function that Gemini Calls
+# 🔹 Function Gemini Calls
 # ==============================
 def schedule(tasks):
     print("📅 Gemini triggered schedule() ...")
@@ -116,30 +113,10 @@ def schedule(tasks):
 with open("./gemini_sched/tasks.json", "r") as f:
     task_data = json.load(f)
 
-prompt = f"""
-You are an AI scheduling assistant.
+with open("./gemini_sched/schedule_system.txt", "r") as f:
+    system_prompt = f.read()
 
-Steps:
-1️⃣ Based on the following task data, create a structured daily schedule for each employee.
-2️⃣ Each staff member’s output should follow this format:
-{{
-  "staff_member": "Employee name",
-  "total_task_hours": float,
-  "tasks": [
-    {{
-      "time_start": "09:00 AM",
-      "time_end": "11:00 AM",
-      "duration_hours": 2.0,
-      "task_name": "Task title",
-      "priority": 1,
-      "notes": "Short description"
-    }},
-    ...
-  ]
-}}
-3️⃣ After finishing, **do not output text.**
-Directly call the function `schedule()` and pass the JSON above as its argument.
-
+prompt = system_prompt + f"""
 Task data:
 {json.dumps(task_data, indent=2, ensure_ascii=False)}
 """
@@ -154,21 +131,54 @@ response = client.models.generate_content(
 )
 
 # ==============================
-# 🔹 Handle Gemini Function Call
+# 🔹 Handle Gemini Function or JSON Output
 # ==============================
 try:
-    part = response.candidates[0].content.parts[0]
-    if hasattr(part, "function_call") and part.function_call:
-        fn = part.function_call
-        print(f"\n🔧 Gemini called function: {fn.name}")
-        print(f"🧩 Arguments: {json.dumps(fn.args, indent=2, ensure_ascii=False)}")
-
+    # --- 若模型有觸發 function call ---
+    if (
+        response.candidates
+        and response.candidates[0].content
+        and response.candidates[0].content.parts
+        and hasattr(response.candidates[0].content.parts[0], "function_call")
+        and response.candidates[0].content.parts[0].function_call
+    ):
+        fn = response.candidates[0].content.parts[0].function_call
+        print(f"\nGemini called function: {fn.name}")
+        print(f"Arguments: {json.dumps(fn.args, indent=2, ensure_ascii=False)}")
         if fn.name == "schedule":
             args = fn.args
             schedule(tasks=args["tasks"])
+
     else:
-        print("⚠️ No function call detected. Gemini output:")
-        print(response.text)
+        # --- 沒 function call → 嘗試自動抽出 JSON ---
+        print("⚠️ 沒有偵測到 function call，改嘗試解析 JSON 輸出。")
+
+        text_output = response.text.strip()
+        # 移除 markdown code block 包裝
+        if text_output.startswith("```"):
+            matches = re.findall(r"```json(.*?)```", text_output, re.DOTALL)
+            if matches:
+                text_output = matches[0]
+            else:
+                text_output = text_output.replace("```json", "").replace("```", "").strip()
+
+        # 找出第一個合法 JSON（忽略後面說明文字）
+        json_match = re.search(r"\{[\s\S]*\}", text_output)
+        if not json_match:
+            raise ValueError("❌ 無法在輸出中找到 JSON 結構。")
+
+        json_text = json_match.group(0)
+        json_data = json.loads(json_text)
+
+        # 根據輸出結構選擇正確欄位
+        if "staff_schedules" in json_data:
+            update_calendar(json_data["staff_schedules"])
+        elif "tasks" in json_data:
+            update_calendar(json_data["tasks"])
+        else:
+            update_calendar(json_data)
+
+        print("✅ schedule.json 已成功更新（fallback 模式）")
 
 except Exception as e:
     print("❌ Error processing response:", e)
