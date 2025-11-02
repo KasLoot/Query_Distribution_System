@@ -28,7 +28,7 @@ def generate(query: str):
     # Configure the client and tools
     client = genai.Client(api_key="AIzaSyDKLQONElGnqtXPO9Ccf5_-fvnpkAiNrf4")
     tools = types.Tool(function_declarations=[generate_summary_function])
-    config = types.GenerateContentConfig(tools=[tools])
+    config = types.GenerateContentConfig(tools=[tools], temperature=1.0)
 
     with open("summary_report_system.txt", "r") as f:
         system_prompt = f.read()
@@ -61,7 +61,7 @@ def generate(query: str):
     else:
         print("No function call found in the response.")
         print(response.text)
-    return None
+    return response.text
 
 def fetch_weekly_queries():
     r = requests.get(f"{BASE}/items/fetch_weekly_queries/")
@@ -85,7 +85,10 @@ if __name__ in {"__main__", "__mp_main__"}:
             def on_submit():
                 print("Generating summary report...")
                 summary = summarize_weekly_report(textarea.value)
-                report_content = summary.get('query_weekly_report', 'No report generated.')
+                try:
+                    report_content = summary.get('query_weekly_report', 'No report generated.')
+                except AttributeError:
+                    report_content = summary
                 output_markdown.set_content(f"**Weekly Summary Report:**\n\n{report_content}")
             ui.button('Generate Summary Report', on_click=on_submit).classes('mt-2')
         with ui.card().classes('w-96 mt-4'):

@@ -1,163 +1,59 @@
 {
   "tasks": [
     {
-      "query": "User needs general assistance.",
-      "estimate_time": 30,
-      "priority": 3,
-      "person": [
-        "Steven"
-      ]
-    },
-    {
-      "query": "User reported a broken product.",
-      "estimate_time": 60,
-      "priority": 2,
-      "person": [
-        "Steven"
-      ]
-    },
-    {
-      "query": "Unsolved tech issue",
-      "estimate_time": 120,
-      "priority": 2,
-      "person": [
-        "Steven"
-      ]
-    },
-    {
       "query": "New feature request for Product A",
-      "estimate_time": 120,
-      "priority": 3,
-      "person": [
-        "Steven"
-      ]
-    },
-    {
-      "query": "New feature request for Product A",
-      "estimate_time": 60,
-      "priority": 3,
-      "person": [
-        "Steven"
-      ]
-    },
-    {
-      "query": "Customer requests for a new feature related to Product A.",
-      "estimate_time": 120,
-      "priority": 3,
-      "person": [
-        "Steven"
-      ]
-    },
-    {
-      "query": "Business development discussion",
-      "estimate_time": 60,
-      "priority": 2,
-      "person": [
-        "Cindy"
-      ]
-    },
-    {
-      "query": "Inquiry about acquiring the company.",
-      "estimate_time": 60,
-      "priority": 1,
-      "person": [
-        "Cindy"
-      ]
-    },
-    {
-      "query": "Shipping products to Germany",
-      "estimate_time": 10,
-      "priority": 3,
-      "person": [
-        "Ramona"
-      ]
-    },
-    {
-      "query": "YOOOOO",
-      "estimate_time": 120,
-      "priority": "2",
-      "person": [
-        "Karl"
-      ]
-    },
-    {
-      "query": "Pooping",
-      "estimate_time": 100,
-      "priority": "2",
-      "person": [
-        "Karl"
-      ]
-    },
-    {
-      "query": "Hackathon",
-      "estimate_time": 100,
-      "priority": "2",
-      "person": [
-        "Karl"
-      ]
-    },
-    {
-      "query": "Sleeping",
-      "estimate_time": 100,
-      "priority": "2",
-      "person": [
-        "Karl"
-      ]
-    },
-    {
-      "query": "0,0",
-      "estimate_time": 100,
-      "priority": "2",
-      "person": [
-        "Karl"
-      ]
-    },
-    {
-      "query": "hihi",
-      "estimate_time": 100,
-      "priority": "1",
-      "person": [
-        "Karl"
-      ]
-    },
-    {
-      "query": "hihi",
-      "estimate_time": 100,
-      "priority": "1",
-      "person": [
-        "Karl"
-      ]
-    },
-    {
-      "query": "0.0.0.0.0.0",
-      "estimate_time": 100,
-      "priority": "1",
-      "person": [
-        "Karl"
-      ]
-    },
-    {
-      "query": "Customer provides feedback on the platform's steep learning curve, unclear dashboard functionality, inadequate onboarding materials, and slow response times from the customer success team.",
-      "estimate_time": 120,
-      "priority": 2,
-      "person": [
-        "Alex"
-      ]
-    },
-    {
-      "query": "Customer feedback regarding missing platform features, workflow automation limitations, compliance concerns, and a request for a clearer public roadmap.",
       "estimate_time": 240,
       "priority": 2,
       "person": [
-        "Alex"
+        "Steven"
       ]
     },
     {
-      "query": "Customer reports significant product performance issues, including system latency, cloud sync failures, and inconsistent API responses, impacting deployment and integration.",
-      "estimate_time": 480,
+      "query": "Customer feedback regarding missing platform features (user permissions, model versioning, rollback), compliance concerns, and a request for a clearer public roadmap.",
+      "estimate_time": 360,
+      "priority": 2,
+      "person": [
+        "Karl,Steven,Kevin,Alex"
+      ]
+    },
+    {
+      "query": "Customer feedback on platform pricing model, feature tiers, and transparency",
+      "estimate_time": 150,
+      "priority": 2,
+      "person": [
+        "Steven,Kevin,Alex"
+      ]
+    },
+    {
+      "query": "Urgent product crash on startup",
+      "estimate_time": 240,
       "priority": 1,
       "person": [
-        "Mia"
+        "Karl,Mia,Liam,Alex"
+      ]
+    },
+    {
+      "query": "The printer on the third floor is broken.",
+      "estimate_time": 60,
+      "priority": 1,
+      "person": [
+        "Olivia"
+      ]
+    },
+    {
+      "query": "User's laptop won't power on, critical project files at risk, needs immediate IT assistance for a 2 p.m. meeting.",
+      "estimate_time": 90,
+      "priority": 1,
+      "person": [
+        "Olivia"
+      ]
+    },
+    {
+      "query": "Request for Product B manual",
+      "estimate_time": 15,
+      "priority": 3,
+      "person": [
+        "Kevin"
       ]
     }
   ]

@@ -28,7 +28,9 @@ SUMMARY_PID=$!
 python calendar/server.py &
 CALENDAR_PID=$!
 
-python gemini_sched/planning.py &
+python gemini_sched/lark_reader.py &
+
+python gemini_sched/planning_2.py &
 PLANNING_PID=$!
 
 echo "All services started:"

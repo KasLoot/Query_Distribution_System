@@ -105,4 +105,4 @@ with ui.column().classes('w-full items-center'):
         textarea = ui.textarea(label='Leave your query here...', placeholder='').classes('w-full')
         ui.button('Submit', on_click=lambda: assign_query(textarea.value))
 
-ui.run(port=8085)
+ui.run(port=8095)

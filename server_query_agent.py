@@ -2,6 +2,8 @@ from fastapi import FastAPI, Request
 from pydantic import BaseModel
 import uvicorn
 from feishu_api import lark_writing, lark_read_and_group
+from gemini_sched.lark_reader import lark_read_and_group as lark_read_and_group_sched
+from gemini_sched.planning import plan
 
 app = FastAPI()
 
@@ -26,6 +28,11 @@ async def assign_query(result: AssignQueryRequest):
         person=str.join(",", result.staff_member),
         source=result.source
     )
+    print("Starting scheduling process...")
+    print("Reading and grouping scheduled tasks...")
+    lark_read_and_group_sched()
+    print("Planning schedule...")
+    plan()
     return {"message": "Query assigned successfully"}
 
 

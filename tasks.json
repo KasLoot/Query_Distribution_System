@@ -1,16 +1,48 @@
 {
   "tasks": [
     {
-      "query": "Pooping",
-      "estimate_time": 120,
-      "priority": 1,
+      "query": "User needs general assistance.",
+      "estimate_time": 30,
+      "priority": 3,
       "person": [
-        "Haha"
+        "Steven"
       ]
     },
     {
-      "query": "User needs general assistance.",
-      "estimate_time": 30,
+      "query": "User reported a broken product.",
+      "estimate_time": 60,
+      "priority": 2,
+      "person": [
+        "Steven"
+      ]
+    },
+    {
+      "query": "Unsolved tech issue",
+      "estimate_time": 120,
+      "priority": 2,
+      "person": [
+        "Steven"
+      ]
+    },
+    {
+      "query": "New feature request for Product A",
+      "estimate_time": 120,
+      "priority": 3,
+      "person": [
+        "Steven"
+      ]
+    },
+    {
+      "query": "New feature request for Product A",
+      "estimate_time": 60,
+      "priority": 3,
+      "person": [
+        "Steven"
+      ]
+    },
+    {
+      "query": "Customer requests for a new feature related to Product A.",
+      "estimate_time": 120,
       "priority": 3,
       "person": [
         "Steven"
@@ -22,6 +54,126 @@
       "priority": 2,
       "person": [
         "Cindy"
+      ]
+    },
+    {
+      "query": "Inquiry about acquiring the company.",
+      "estimate_time": 60,
+      "priority": 1,
+      "person": [
+        "Cindy"
+      ]
+    },
+    {
+      "query": "Shipping products to Germany",
+      "estimate_time": 10,
+      "priority": 3,
+      "person": [
+        "Ramona"
+      ]
+    },
+    {
+      "query": "YOOOOO",
+      "estimate_time": 120,
+      "priority": "2",
+      "person": [
+        "Karl"
+      ]
+    },
+    {
+      "query": "Pooping",
+      "estimate_time": 100,
+      "priority": "2",
+      "person": [
+        "Karl"
+      ]
+    },
+    {
+      "query": "Hackathon",
+      "estimate_time": 100,
+      "priority": "2",
+      "person": [
+        "Karl"
+      ]
+    },
+    {
+      "query": "Sleeping",
+      "estimate_time": 100,
+      "priority": "2",
+      "person": [
+        "Karl"
+      ]
+    },
+    {
+      "query": "0,0",
+      "estimate_time": 100,
+      "priority": "2",
+      "person": [
+        "Karl"
+      ]
+    },
+    {
+      "query": "hihi",
+      "estimate_time": 100,
+      "priority": "1",
+      "person": [
+        "Karl"
+      ]
+    },
+    {
+      "query": "hihi",
+      "estimate_time": 100,
+      "priority": "1",
+      "person": [
+        "Karl"
+      ]
+    },
+    {
+      "query": "0.0.0.0.0.0",
+      "estimate_time": 100,
+      "priority": "1",
+      "person": [
+        "Karl"
+      ]
+    },
+    {
+      "query": "Customer provides feedback on the platform's steep learning curve, unclear dashboard functionality, inadequate onboarding materials, and slow response times from the customer success team.",
+      "estimate_time": 120,
+      "priority": 2,
+      "person": [
+        "Alex"
+      ]
+    },
+    {
+      "query": "Customer feedback regarding missing platform features, workflow automation limitations, compliance concerns, and a request for a clearer public roadmap.",
+      "estimate_time": 240,
+      "priority": 2,
+      "person": [
+        "Alex"
+      ]
+    },
+    {
+      "query": "Customer reports significant product performance issues, including system latency, cloud sync failures, and inconsistent API responses, impacting deployment and integration.",
+      "estimate_time": 480,
+      "priority": 1,
+      "person": [
+        "Mia"
+      ]
+    },
+    {
+      "query": "Customer feedback on missing features (fine-grained user permissions, automated model versioning, rollback support), compliance concerns, competitor comparison, and request for a clearer public roadmap.",
+      "estimate_time": 240,
+      "priority": 2,
+      "person": [
+        "Steven,Karl,Liam,Peter,Alex"
+      ]
+    },
+    {
+      "query": "Customer feedback on missing product features (fine-grained user permissions, automated model versioning, rollback support), compliance concerns, competitive landscape, and the need for a clearer public roadmap.",
+      "estimate_time": 180,
+      "priority": 2,
+      "person": [
+        "Steven,Karl,Liam,Peter,Alex"
       ]
     }
   ]

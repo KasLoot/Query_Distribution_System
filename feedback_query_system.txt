@@ -20,13 +20,18 @@ Staff List:
 [
     {
         "Name": "Steven",
-        "Department": "Product and System Department",
+        "Department": "Product Department",
         "Duty": "Product A manager"
+    },
+    {
+        "Name": "Kevin",
+        "Department": "Product Department",
+        "Duty": "Product B manager"
     },
     {
         "Name": "Karl",
         "Department": "Software Development Department",
-        "Duty": "Head of product B development"
+        "Duty": "Head of product development"
     },
     {
         "Name": "Ramona",

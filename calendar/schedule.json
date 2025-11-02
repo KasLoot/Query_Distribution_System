@@ -1,200 +1,170 @@
 {
-  "Cindy": [
+  "Steven": [
     {
-      "end": "2025-11-03T10:00:00",
-      "notes": "",
-      "priority": 1,
+      "title": "New feature request for Product A",
       "start": "2025-11-03T09:00:00",
-      "title": "Inquiry about acquiring the company."
-    },
-    {
-      "end": "2025-11-03T11:00:00",
-      "notes": "",
-      "priority": 2,
-      "start": "2025-11-03T10:00:00",
-      "title": "Business development discussion"
-    },
-    {
-      "end": "2025-11-03T12:00:00",
-      "notes": "",
-      "priority": 1,
-      "start": "2025-11-03T11:00:00",
-      "title": "Inquiry about acquiring the company."
-    },
-    {
       "end": "2025-11-03T13:00:00",
-      "notes": "",
       "priority": 2,
-      "start": "2025-11-03T12:00:00",
-      "title": "Business development discussion"
+      "notes": "Developing new features"
     },
     {
-      "end": "2025-11-03T14:00:00",
-      "notes": "Mandatory break.",
-      "priority": 99,
+      "title": "Lunch Break",
       "start": "2025-11-03T13:00:00",
-      "title": "Lunch Break"
+      "end": "2025-11-03T14:00:00",
+      "priority": 99,
+      "notes": "Mandatory break."
     },
     {
-      "end": "2025-11-03T15:00:00",
-      "notes": "",
-      "priority": 1,
+      "title": "Customer feedback regarding missing platform features (user permissions, model versioning, rollback), compliance concerns, and a request for a clearer public roadmap.",
       "start": "2025-11-03T14:00:00",
-      "title": "Inquiry about acquiring the company."
-    },
-    {
       "end": "2025-11-03T16:00:00",
-      "notes": "",
       "priority": 2,
-      "start": "2025-11-03T15:00:00",
-      "title": "Business development discussion"
+      "notes": "Address customer feedback"
     },
     {
-      "end": "2025-11-03T17:00:00",
-      "notes": "",
-      "priority": 1,
+      "title": "Customer feedback on platform pricing model, feature tiers, and transparency",
       "start": "2025-11-03T16:00:00",
-      "title": "Inquiry about acquiring the company."
+      "end": "2025-11-03T17:30:00",
+      "priority": 2,
+      "notes": "Address customer feedback"
     }
   ],
   "Karl": [
     {
-      "end": "2025-11-03T10:40:00",
-      "notes": "",
-      "priority": 1,
+      "title": "Urgent product crash on startup",
       "start": "2025-11-03T09:00:00",
-      "title": "hihi"
-    },
-    {
-      "end": "2025-11-03T12:20:00",
-      "notes": "",
-      "priority": 1,
-      "start": "2025-11-03T10:40:00",
-      "title": "hihi"
-    },
-    {
-      "end": "2025-11-03T14:00:00",
-      "notes": "",
-      "priority": 1,
-      "start": "2025-11-03T12:20:00",
-      "title": "0.0.0.0.0.0"
-    },
-    {
-      "end": "2025-11-03T15:00:00",
-      "notes": "",
-      "priority": 2,
-      "start": "2025-11-03T14:00:00",
-      "title": "YOOOOO"
-    },
-    {
-      "end": "2025-11-03T16:40:00",
-      "notes": "",
-      "priority": 2,
-      "start": "2025-11-03T15:00:00",
-      "title": "Pooping"
-    },
-    {
-      "end": "2025-11-03T17:00:00",
-      "notes": "",
-      "priority": 2,
-      "start": "2025-11-03T16:40:00",
-      "title": "Hackathon"
-    }
-  ],
-  "Ramona": [
-    {
-      "done": false,
-      "end": "2025-11-03T09:10:00",
-      "notes": "",
-      "priority": 3,
-      "start": "2025-11-03T09:00:00",
-      "title": "Shipping products to Germany"
-    },
-    {
-      "end": "2025-11-03T09:20:00",
-      "notes": "",
-      "priority": 3,
-      "start": "2025-11-03T09:10:00",
-      "title": "Shipping products to Germany"
-    },
-    {
-      "end": "2025-11-03T09:30:00",
-      "notes": "",
-      "priority": 3,
-      "start": "2025-11-03T09:20:00",
-      "title": "Shipping products to Germany"
-    },
-    {
-      "end": "2025-11-03T14:00:00",
-      "notes": "Mandatory break.",
-      "priority": 99,
-      "start": "2025-11-03T13:00:00",
-      "title": "Lunch Break"
-    },
-    {
-      "end": "2025-11-03T09:40:00",
-      "notes": "",
-      "priority": 3,
-      "start": "2025-11-03T09:30:00",
-      "title": "Shipping products to Germany"
-    }
-  ],
-  "Steven": [
-    {
-      "end": "2025-11-03T10:00:00",
-      "notes": "",
-      "priority": 2,
-      "start": "2025-11-03T09:00:00",
-      "title": "User reported a broken product."
-    },
-    {
-      "end": "2025-11-03T12:00:00",
-      "notes": "",
-      "priority": 2,
-      "start": "2025-11-03T10:00:00",
-      "title": "Unsolved tech issue"
-    },
-    {
-      "end": "2025-11-03T12:30:00",
-      "notes": "",
-      "priority": 3,
-      "start": "2025-11-03T12:00:00",
-      "title": "User needs general assistance."
-    },
-    {
       "end": "2025-11-03T13:00:00",
-      "notes": "",
-      "priority": 2,
-      "start": "2025-11-03T12:30:00",
-      "title": "User reported a broken product."
+      "priority": 1,
+      "notes": "Fixing product crash"
     },
     {
-      "end": "2025-11-03T14:00:00",
-      "notes": "Mandatory break.",
-      "priority": 99,
+      "title": "Lunch Break",
       "start": "2025-11-03T13:00:00",
-      "title": "Lunch Break"
+      "end": "2025-11-03T14:00:00",
+      "priority": 99,
+      "notes": "Mandatory break."
     },
     {
-      "end": "2025-11-03T15:00:00",
-      "notes": "",
-      "priority": 2,
+      "title": "Customer feedback regarding missing platform features (user permissions, model versioning, rollback), compliance concerns, and a request for a clearer public roadmap.",
       "start": "2025-11-03T14:00:00",
-      "title": "Unsolved tech issue"
-    },
-    {
-      "end": "2025-11-03T16:00:00",
-      "notes": "",
+      "end": "2025-11-03T17:00:00",
       "priority": 2,
-      "start": "2025-11-03T15:00:00",
-      "title": "User reported a broken product."
+      "notes": "Address customer feedback"
+    }
+  ],
+  "Kevin": [
+    {
+      "title": "Customer feedback regarding missing platform features (user permissions, model versioning, rollback), compliance concerns, and a request for a clearer public roadmap.",
+      "start": "2025-11-03T09:00:00",
+      "end": "2025-11-03T11:30:00",
+      "priority": 2,
+      "notes": "Address customer feedback"
     },
     {
-      "end": "2025-11-03T16:30:00",
-      "notes": "",
+      "title": "Customer feedback on platform pricing model, feature tiers, and transparency",
+      "start": "2025-11-03T11:30:00",
+      "end": "2025-11-03T13:00:00",
+      "priority": 2,
+      "notes": "Address customer feedback"
+    },
+    {
+      "title": "Lunch Break",
+      "start": "2025-11-03T13:00:00",
+      "end": "2025-11-03T14:00:00",
+      "priority": 99,
+      "notes": "Mandatory break."
+    },
+    {
+      "title": "Request for Product B manual",
+      "start": "2025-11-03T14:00:00",
+      "end": "2025-11-03T14:15:00",
       "priority": 3,
+      "notes": "Send manual"
+    }
+  ],
+  "Alex": [
+    {
+      "title": "Urgent product crash on startup",
+      "start": "2025-11-03T09:00:00",
+      "end": "2025-11-03T13:00:00",
+      "priority": 1,
+      "notes": "Fixing product crash"
+    },
+    {
+      "title": "Lunch Break",
+      "start": "2025-11-03T13:00:00",
+      "end": "2025-11-03T14:00:00",
+      "priority": 99,
+      "notes": "Mandatory break."
+    },
+    {
+      "title": "Customer feedback regarding missing platform features (user permissions, model versioning, rollback), compliance concerns, and a request for a clearer public roadmap.",
+      "start": "2025-11-03T14:00:00",
+      "end": "2025-11-03T16:00:00",
+      "priority": 2,
+      "notes": "Address customer feedback"
+    },
+    {
+      "title": "Customer feedback on platform pricing model, feature tiers, and transparency",
       "start": "2025-11-03T16:00:00",
-      "title": "User needs general assistance."
+      "end": "2025-11-03T17:30:00",
+      "priority": 2,
+      "notes": "Address customer feedback"
+    }
+  ],
+  "Mia": [
+    {
+      "title": "Urgent product crash on startup",
+      "start": "2025-11-03T09:00:00",
+      "end": "2025-11-03T13:00:00",
+      "priority": 1,
+      "notes": "Fixing product crash"
+    },
+    {
+      "title": "Lunch Break",
+      "start": "2025-11-03T13:00:00",
+      "end": "2025-11-03T14:00:00",
+      "priority": 99,
+      "notes": "Mandatory break."
+    }
+  ],
+  "Liam": [
+    {
+      "title": "Urgent product crash on startup",
+      "start": "2025-11-03T09:00:00",
+      "end": "2025-11-03T13:00:00",
+      "priority": 1,
+      "notes": "Fixing product crash"
+    },
+    {
+      "title": "Lunch Break",
+      "start": "2025-11-03T13:00:00",
+      "end": "2025-11-03T14:00:00",
+      "priority": 99,
+      "notes": "Mandatory break."
+    }
+  ],
+  "Olivia": [
+    {
+      "title": "The printer on the third floor is broken.",
+      "start": "2025-11-03T09:00:00",
+      "end": "2025-11-03T10:00:00",
+      "priority": 1,
+      "notes": "Fix the printer"
+    },
+    {
+      "title": "User's laptop won't power on, critical project files at risk, needs immediate IT assistance for a 2 p.m. meeting.",
+      "start": "2025-11-03T10:00:00",
+      "end": "2025-11-03T11:30:00",
+      "priority": 1,
+      "notes": "Fix the laptop"
+    },
+    {
+      "title": "Lunch Break",
+      "start": "2025-11-03T13:00:00",
+      "end": "2025-11-03T14:00:00",
+      "priority": 99,
+      "notes": "Mandatory break."
     }
   ]
 }
