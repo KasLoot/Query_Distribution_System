@@ -7,7 +7,7 @@ APP_ID = "cli_a98cd34bba38de1a"
 APP_SECRET = "gBjwBVIwsVwK8mgRXWB1LcSCyxkn7P4S"
 SHEET_TOKEN = "EzezsDebzhSvL8tHkKIjjUU1p6f"
 
-def lark_writing(query: str, est_time: int, priority: str, person: str):
+def lark_writing(query: str, query_details: str, est_time: int, priority: str, person: str, source: str):
     res = requests.post(
         "https://open.larksuite.com/open-apis/auth/v3/tenant_access_token/internal/",
         json={"app_id": APP_ID, "app_secret": APP_SECRET}
@@ -33,9 +33,9 @@ def lark_writing(query: str, est_time: int, priority: str, person: str):
 
     payload = {
         "valueRange": {
-            "range": f"{sheet_id}!A:E",  
+            "range": f"{sheet_id}!A:G",
             "values": [
-                [query, est_time, priority, person, datetime.now().isoformat()]
+                [query, est_time, priority, person, datetime.now().isoformat(), source, query_details]
             ]
         }
     }

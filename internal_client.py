@@ -53,7 +53,7 @@ def generate(query: str):
     tools = types.Tool(function_declarations=[assign_query_function])
     config = types.GenerateContentConfig(tools=[tools])
 
-    with open("feedback_query_system.txt", "r") as f:
+    with open("internal_query_system.txt", "r") as f:
         system_prompt = f.read()
 
     user_query = [
@@ -82,7 +82,7 @@ def generate(query: str):
         if function_call.name == "assign_query":
             print(f"function_call.name == 'assign_query'")
             # add source parameter
-            answer["source"] = "external_client"
+            answer["source"] = "internal_client"
         return answer
     else:
         print("No function call found in the response.")
@@ -90,7 +90,7 @@ def generate(query: str):
     return None
 
 def assign_query(feedback: str):
-    print("Query receieved. Generating assignment...")
+    print("Query received. Generating assignment...")
     result = generate(feedback)
     if result != None and result.get("valid_query", True):
         r = requests.post(f"{BASE}/items/assign_query/", json=result)
@@ -101,8 +101,8 @@ def assign_query(feedback: str):
 
 with ui.column().classes('w-full items-center'):
     with ui.card().classes('w-96'):
-        ui.label('Feedback Form').classes('text-h6')
-        textarea = ui.textarea(label='Leave your feedback here...', placeholder='').classes('w-full')
+        ui.label('Internal Query Form').classes('text-h6')
+        textarea = ui.textarea(label='Leave your query here...', placeholder='').classes('w-full')
         ui.button('Submit', on_click=lambda: assign_query(textarea.value))
 
-ui.run(port=8080)
+ui.run(port=8085)

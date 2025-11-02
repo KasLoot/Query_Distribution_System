@@ -12,6 +12,7 @@ class AssignQueryRequest(BaseModel):
     query_details: str
     priority_level: int
     estimated_resolution_time: int
+    source: str
 
 
 @app.post("/items/assign_query/")
@@ -19,9 +20,11 @@ async def assign_query(result: AssignQueryRequest):
     print(f"Received result:\n{result}")
     lark_writing(
         query=result.query_brief,
+        query_details=result.query_details,
         est_time=f"{result.estimated_resolution_time}",
         priority=result.priority_level,
-        person=result.staff_member[0]
+        person=str.join(",", result.staff_member),
+        source=result.source
     )
     return {"message": "Query assigned successfully"}
 

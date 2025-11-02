@@ -1,52 +1,50 @@
 {
-  "Cindy": [
+  "Steven": [
     {
-      "done": true,
-      "end": "2025-11-02T10:00:00",
-      "notes": "",
-      "priority": "High",
+      "title": "User needs general assistance.",
       "start": "2025-11-02T09:00:00",
-      "title": "Inquiry about acquiring the company."
+      "end": "2025-11-02T09:30:00",
+      "priority": "Low",
+      "notes": "User needs general assistance."
     },
     {
-      "done": true,
-      "end": "2025-11-02T11:00:00",
-      "notes": "",
+      "title": "User reported a broken product.",
+      "start": "2025-11-02T09:30:00",
+      "end": "2025-11-02T10:30:00",
       "priority": "Medium",
+      "notes": "User reported a broken product."
+    },
+    {
+      "title": "Unsolved tech issue",
+      "start": "2025-11-02T10:30:00",
+      "end": "2025-11-02T12:30:00",
+      "priority": "Medium",
+      "notes": "Unsolved tech issue"
+    }
+  ],
+  "Cindy": [
+    {
+      "title": "Inquiry about acquiring the company.",
+      "start": "2025-11-02T09:00:00",
+      "end": "2025-11-02T10:00:00",
+      "priority": "High",
+      "notes": "Inquiry about acquiring the company."
+    },
+    {
+      "title": "Business development discussion",
       "start": "2025-11-02T10:00:00",
-      "title": "Business development discussion"
+      "end": "2025-11-02T11:00:00",
+      "priority": "Medium",
+      "notes": "Business development discussion"
     }
   ],
   "Ramona": [
     {
+      "title": "Shipping products to Germany",
+      "start": "2025-11-02T09:00:00",
       "end": "2025-11-02T09:10:00",
-      "notes": "",
       "priority": "Low",
-      "start": "2025-11-02T09:00:00",
-      "title": "Shipping products to Germany"
-    }
-  ],
-  "Steven": [
-    {
-      "end": "2025-11-02T09:30:00",
-      "notes": "",
-      "priority": "Low",
-      "start": "2025-11-02T09:00:00",
-      "title": "User needs general assistance."
-    },
-    {
-      "end": "2025-11-02T10:30:00",
-      "notes": "",
-      "priority": "Medium",
-      "start": "2025-11-02T09:30:00",
-      "title": "User reported a broken product."
-    },
-    {
-      "end": "2025-11-02T12:30:00",
-      "notes": "",
-      "priority": "Medium",
-      "start": "2025-11-02T10:30:00",
-      "title": "Unsolved tech issue"
+      "notes": "Shipping products to Germany"
     }
   ]
 }
