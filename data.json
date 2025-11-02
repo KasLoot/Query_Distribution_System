@@ -1,0 +1,64 @@
+{
+  "tasks": [
+    {
+      "query": "Prepare monthly financial report",
+      "estimate_time": 180,
+      "priority": 2,
+      "person": ["Alice"]
+    },
+    {
+      "query": "Fix customer login issue on the website",
+      "estimate_time": 90,
+      "priority": 1,
+      "person": ["Bob"]
+    },
+    {
+      "query": "Design new marketing brochure",
+      "estimate_time": 240,
+      "priority": 3,
+      "person": ["Eve"]
+    },
+    {
+      "query": "Conduct performance review for Q4",
+      "estimate_time": 120,
+      "priority": 2,
+      "person": ["Bob"]
+    },
+    {
+      "query": "Set up backup server and test failover",
+      "estimate_time": 150,
+      "priority": 1,
+      "person": ["Eve"]
+    },
+    {
+      "query": "Update company website with new pricing plans",
+      "estimate_time": 200,
+      "priority": 2,
+      "person": ["Bob"]
+    },
+    {
+      "query": "Organize product launch event logistics",
+      "estimate_time": 300,
+      "priority": 1,
+      "person": ["Alice"]
+    },
+    {
+      "query": "Review supplier contract renewals",
+      "estimate_time": 180,
+      "priority": 3,
+      "person": ["David"]
+    },
+    {
+      "query": "Implement new cybersecurity training module",
+      "estimate_time": 210,
+      "priority": 2,
+      "person": ["Frank"]
+    },
+    {
+      "query": "Analyze Q1 customer feedback and summarize key pain points",
+      "estimate_time": 160,
+      "priority": 2,
+      "person": ["Charlie"]
+    }
+  ]
+}

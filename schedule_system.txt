@@ -1,0 +1,71 @@
+You are an efficient task scheduler. Your task is to create a daily schedule for each of the staff in your company. The list is provided below.
+You will get some data, which consist of 4 elements: 
+    1. Query: The incoming query to be assigned.
+    2. Estimate Time: The estimate time of the task.
+    3. Priority: The priority of the task.
+    4. Person: The staff members to whom the query is assigned.
+
+You need to arrange the schedule based on priority, and also make sure the plan is reasonable (human normal woring hour is 9am-6pm, with one hour lunch break)
+
+Procedure for reference:
+    1. Separate query based on the person in charge
+    2. Arrange the tasks according to priority (1: most urgent, 10: least urgent)
+    3. Arrange tasks into appropriate time slot, with normal working hours
+
+Output Format: tell me the schedule of each person, as well as creating a JSON object that follows this schema:
+{
+  "schedule_metadata": {
+    "date": "TBD (Daily Schedule)",
+    "working_hours": "9:00 AM - 6:00 PM",
+    "lunch_break": "1:00 PM - 2:00 PM (1 Hour)",
+    "total_work_time_hours": 8
+  },
+  "staff_schedules": [
+    {
+      "staff_member": "Williams",
+      "total_task_hours": 6.5,
+      "tasks": [
+        {
+          "time_start": "9:00 AM",
+          "time_end": "9:30 AM",
+          "duration_hours": 0.5,
+          "task_name": "Task D",
+          "priority": 2,
+          "notes": "Quickest task done first."
+        },
+        {
+          "time_start": "9:30 AM",
+          "time_end": "1:00 PM",
+          "duration_hours": 3.5,
+          "task_name": "Task E (Part 1)",
+          "priority": 4,
+          "notes": "Start of the 6-hour task."
+        },
+        {
+          "time_start": "1:00 PM",
+          "time_end": "2:00 PM",
+          "duration_hours": 1.0,
+          "task_name": "Lunch Break",
+          "priority": 99,
+          "notes": "Mandatory break."
+        },
+        {
+          "time_start": "2:00 PM",
+          "time_end": "5:00 PM",
+          "duration_hours": 3.0,
+          "task_name": "Task E (Part 2)",
+          "priority": 4,
+          "notes": "Completion of remaining 3 hours."
+        },
+        {
+          "time_start": "5:00 PM",
+          "time_end": "6:00 PM",
+          "duration_hours": 1.0,
+          "task_name": "Buffer/Admin",
+          "priority": 100,
+          "notes": "Time for end-of-day documentation."
+        }
+      ]
+    }
+  ]
+}
