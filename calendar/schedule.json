@@ -1,0 +1,52 @@
+{
+  "Cindy": [
+    {
+      "done": true,
+      "end": "2025-11-02T10:00:00",
+      "notes": "",
+      "priority": "High",
+      "start": "2025-11-02T09:00:00",
+      "title": "Inquiry about acquiring the company."
+    },
+    {
+      "done": true,
+      "end": "2025-11-02T11:00:00",
+      "notes": "",
+      "priority": "Medium",
+      "start": "2025-11-02T10:00:00",
+      "title": "Business development discussion"
+    }
+  ],
+  "Ramona": [
+    {
+      "end": "2025-11-02T09:10:00",
+      "notes": "",
+      "priority": "Low",
+      "start": "2025-11-02T09:00:00",
+      "title": "Shipping products to Germany"
+    }
+  ],
+  "Steven": [
+    {
+      "end": "2025-11-02T09:30:00",
+      "notes": "",
+      "priority": "Low",
+      "start": "2025-11-02T09:00:00",
+      "title": "User needs general assistance."
+    },
+    {
+      "end": "2025-11-02T10:30:00",
+      "notes": "",
+      "priority": "Medium",
+      "start": "2025-11-02T09:30:00",
+      "title": "User reported a broken product."
+    },
+    {
+      "end": "2025-11-02T12:30:00",
+      "notes": "",
+      "priority": "Medium",
+      "start": "2025-11-02T10:30:00",
+      "title": "Unsolved tech issue"
+    }
+  ]
+}

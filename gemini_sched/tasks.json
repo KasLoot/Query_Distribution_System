@@ -1,0 +1,52 @@
+{
+  "tasks": [
+    {
+      "query": "User needs general assistance.",
+      "estimate_time": 30,
+      "priority": 3,
+      "person": [
+        "Steven"
+      ]
+    },
+    {
+      "query": "User reported a broken product.",
+      "estimate_time": 60,
+      "priority": 2,
+      "person": [
+        "Steven"
+      ]
+    },
+    {
+      "query": "Unsolved tech issue",
+      "estimate_time": 120,
+      "priority": 2,
+      "person": [
+        "Steven"
+      ]
+    },
+    {
+      "query": "Business development discussion",
+      "estimate_time": 60,
+      "priority": 2,
+      "person": [
+        "Cindy"
+      ]
+    },
+    {
+      "query": "Inquiry about acquiring the company.",
+      "estimate_time": 60,
+      "priority": 1,
+      "person": [
+        "Cindy"
+      ]
+    },
+    {
+      "query": "Shipping products to Germany",
+      "estimate_time": 10,
+      "priority": 3,
+      "person": [
+        "Ramona"
+      ]
+    }
+  ]
+}

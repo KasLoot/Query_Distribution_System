@@ -1,14 +1,49 @@
 document.addEventListener("DOMContentLoaded", function () {
-
   let tasks = {};
-  let calendar; // 全域變數方便重整
+  let calendar;
 
-  // 初始化 FullCalendar
+  // 🎨 Define colors based on priority and done state
+  function getColor(task) {
+    if (task.done) return "#b2bec3"; // gray if done
+    switch (task.priority) {
+      case "High": return "#ff7675";
+      case "Medium": return "#fdcb6e";
+      case "Low": return "#55efc4";
+      default: return "#dfe6e9";
+    }
+  }
+
+  // 🟢 Handle click (toggle done / undone)
+  async function handleEventClick(info) {
+    const person = document.getElementById("personDropdown").value;
+    const title = info.event.title.replace("✅ ", "");
+    const target = tasks[person].find(t => t.title === title || t.title === info.event.title);
+
+    if (!target) return alert("Task not found in memory!");
+
+    if (!target.done) {
+      if (confirm(`Mark "${title}" as done?`)) {
+        target.done = true;
+        info.event.setProp("color", getColor(target));
+        info.event.setProp("title", "✅ " + title);
+      }
+    } else {
+      if (confirm(`Undo "${title}" and mark as not done?`)) {
+        target.done = false;
+        info.event.setProp("color", getColor(target));
+        info.event.setProp("title", title.replace("✅ ", ""));
+      }
+    }
+
+    await saveUpdatedTasks();
+  }
+
+  // 🧩 Initialize the calendar
   function initCalendar() {
     const calendarEl = document.getElementById('calendar');
     calendar = new FullCalendar.Calendar(calendarEl, {
       initialView: 'timeGridWeek',
-      locale: 'zh-tw',
+      locale: 'en',
       allDaySlot: false,
       slotMinTime: "08:00:00",
       slotMaxTime: "20:00:00",
@@ -18,35 +53,26 @@ document.addEventListener("DOMContentLoaded", function () {
         right: 'dayGridMonth,timeGridWeek,timeGridDay'
       },
       eventDisplay: 'block',
+      eventClick: handleEventClick,
       events: []
     });
     calendar.render();
   }
 
-  // 設定顏色依照 priority
-  function getColor(priority) {
-    switch (priority) {
-      case "High": return "#ff7675";
-      case "Medium": return "#fdcb6e";
-      case "Low": return "#55efc4";
-      default: return "#dfe6e9";
-    }
-  }
-
-  // 顯示任務在日曆上
+  // 👀 Show selected employee’s tasks
   function showPersonTasks(person) {
     if (!tasks[person]) return;
     const userTasks = tasks[person].map(task => ({
-      title: task.title,
+      title: (task.done ? "✅ " : "") + task.title,
       start: task.start,
       end: task.end,
-      color: getColor(task.priority)
+      color: getColor(task)
     }));
     calendar.removeAllEvents();
     calendar.addEventSource(userTasks);
   }
 
-  // 建立員工下拉選單
+  // 🔽 Dropdown builder
   function buildDropdown() {
     const dropdown = document.getElementById("personDropdown");
     dropdown.innerHTML = "";
@@ -59,19 +85,17 @@ document.addEventListener("DOMContentLoaded", function () {
     dropdown.addEventListener("change", (e) => {
       showPersonTasks(e.target.value);
     });
-
-    // 預設顯示第一位員工
     dropdown.value = Object.keys(tasks)[0];
     dropdown.dispatchEvent(new Event('change'));
   }
 
-  // 讀取 schedule.json
+  // 📥 Load schedule.json from Flask
   async function loadTasks() {
     try {
-      const res = await fetch("./schedule.json?cache=" + Date.now());
-      if (!res.ok) throw new Error("無法讀取 JSON");
+      const res = await fetch("http://127.0.0.1:5501/get_tasks");
+      if (!res.ok) throw new Error("Failed to load JSON");
       tasks = await res.json();
-      console.log("✅ schedule.json 已載入");
+      console.log("✅ Loaded latest schedule.json");
 
       if (!calendar) {
         initCalendar();
@@ -80,16 +104,28 @@ document.addEventListener("DOMContentLoaded", function () {
       const dropdown = document.getElementById("personDropdown");
       showPersonTasks(dropdown.value || Object.keys(tasks)[0]);
     } catch (err) {
-      console.error("讀取任務時發生錯誤：", err);
+      console.error("Error loading schedule:", err);
     }
   }
 
-  // 🚀 初次載入
-  loadTasks();
+  // 💾 Save updated JSON back to Flask
+  async function saveUpdatedTasks() {
+    try {
+      const res = await fetch("http://127.0.0.1:5501/update_task", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(tasks)
+      });
+      const data = await res.json();
+      if (data.status === "success") {
+        console.log("✅ schedule.json updated successfully!");
+      }
+    } catch (err) {
+      console.error("❌ Failed to update schedule:", err);
+    }
+  }
 
-  // 🔁 每 5 秒自動重新載入一次
-  setInterval(async () => {
-    console.log("🔄 檢查是否有新排程...");
-    await loadTasks();
-  }, 5000);
+  // 🚀 Start auto-refresh
+  loadTasks();
+  setInterval(loadTasks, 5000);
 });
