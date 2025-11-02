@@ -6,9 +6,9 @@ document.addEventListener("DOMContentLoaded", function () {
   function getColor(task) {
     if (task.done) return "#b2bec3"; // gray if done
     switch (task.priority) {
-      case "High": return "#ff7675";
-      case "Medium": return "#fdcb6e";
-      case "Low": return "#55efc4";
+      case 1: return "#ff7675";
+      case 2: return "#fdcb6e";
+      case 3: return "#55efc4";
       default: return "#dfe6e9";
     }
   }
